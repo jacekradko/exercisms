@@ -5,14 +5,7 @@ class Anagram {
     }
     matches(args) {
         let list = Array.isArray(args) ? args : [...arguments];
-        let result = new Set()
-
-        for (let item of list) {
-            if (this.isAnagram(item)) {
-                result.add(item)
-            }
-        }
-        return [...result]
+        return list.filter((word) => this.isAnagram(word))
     }
     isAnagram(item) {
         if (item.toLowerCase() === this.word.toLowerCase()) {
